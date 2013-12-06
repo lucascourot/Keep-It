@@ -9,7 +9,7 @@ module.exports = {
 
     create: function (req, res) {
         try {
-            if (!req.param('password') || req.param('password').length < MIN_PASSWORD_LENGTH) {
+            if (!req.param('password') || !req.param('email') || req.param('password').length < MIN_PASSWORD_LENGTH) {
                 throw new Error("Password not sent or doesn't meet length requirement (" + MIN_PASSWORD_LENGTH + " chars)");
             }
 
@@ -19,15 +19,22 @@ module.exports = {
                     email: req.param('email'),
                     password: hash
                 }).done(function (err, user) {
-                        if (err) throw err;
-                        res.json(user);
-                    });
+                    if (err) throw err;
+                    res.json(user);
+                });
             };
 
-            bcrypt.hash(req.param('password'), SALT_WORK_FACTOR, function (err, hash) {
-                if (err) throw err;
-                createUser(hash);
+            User.findOneByEmail(req.param('email')).done(function (err, user) {
+                if (user) {
+                    return res.json({ error: "User already exists!" }, 409);
+                } else {
+                    bcrypt.hash(req.param('password'), SALT_WORK_FACTOR, function (err, hash) {
+                        if (err) throw err;
+                        createUser(hash);
+                    });
+                }
             });
+
 
         } catch (e) {
             return res.json({ error: e.message }, 500);

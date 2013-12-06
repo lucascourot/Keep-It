@@ -42,9 +42,8 @@ module.exports.routes = {
     '/api/v1': {
         view: 'api/index'
     },
-    '/products': {
-        view: 'item/index'
-    }
+    '/products': 'CollectionController.list'
+
 
     /*
      // But what if you want your home page to display

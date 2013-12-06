@@ -24,18 +24,6 @@ module.exports = {
         }
     },
 
-    list: function (req, res) {
-        Item.findAll().done(function (err, items) {
-            if (err) res.json({ error: 'DB error' }, 500);
-
-            if (items) {
-                res.json(items);
-            } else {
-                res.json({ error: 'No item found' }, 404);
-            }
-        });
-    },
-
     /**
      * Overrides for the settings in `config/controllers.js`
      * (specific to ItemController)

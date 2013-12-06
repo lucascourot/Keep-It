@@ -1,0 +1,87 @@
+<div class="container clearfix">
+    <div class="main">
+        <h1 id="main-title">Items</h1>
+
+        <h2>List of the items for the collection </h2>
+        <ul id="collection-container">
+            <li>ok</li>
+        </ul>
+    </div>
+</div>
+
+<script>
+    var collectionContainer = document.getElementById('collection-container');
+    var isItemListLoaded = false;
+
+    var loadItems = function(e) {
+        e.preventDefault();
+        if (isItemListLoaded) return;
+
+        var collectionId = this.getAttribute("data-id");
+        var that = this;
+
+        $.get(
+            '/api/v1/items',
+            {"collectionId": collectionId},
+            function (res) {
+                isItemListLoaded = true;
+                var items = res;
+                var listElement = document.createElement("ul");
+                console.log(this)
+                that.appendChild(listElement);
+
+                for (var i = 0; i < items.length; i++) {
+                    var item = items[i];
+                    var name = item.name;
+                    var description = item.description;
+
+                    var listItem = document.createElement("li");
+
+                    listItem.innerText = name + " " + description;
+
+                    listElement.appendChild(listItem);
+                }
+            }
+        ).fail(function (res) {
+            alert("Error: " + parseError(res).error);
+        });
+
+
+    };
+
+    $(document).ready(function (e) {
+        $.get(
+            '/api/v1/collections',
+            {userId: "<%= userId %>"},
+            function (res) {
+                var collections = res;
+                console.log(res);
+                var listElement = document.createElement("ul");
+
+                collectionContainer.innerHTML = ""; // clear the list
+                collectionContainer.appendChild(listElement);
+
+                for (var i = 0; i < collections.length; i++) {
+                    var collection = collections[i];
+                    var name = collection.name;
+                    var collectionId = collection.id;
+
+                    var listItem = document.createElement("li");
+
+                    var itemLink = document.createElement("a");
+                    itemLink.setAttribute("href", "#");
+                    itemLink.setAttribute("data-id", collectionId);
+                    itemLink.innerText = "(View items)";
+                    itemLink.addEventListener('click', loadItems);
+
+                    listItem.innerText = name + " ";
+                    listItem.appendChild(itemLink);
+
+                    collectionContainer.appendChild(listItem);
+                }
+            }
+        ).fail(function (res) {
+            alert("Error: " + parseError(res).error);
+        });
+    });
+</script>

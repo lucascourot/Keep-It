@@ -23,6 +23,14 @@ module.exports = {
         }
     },
 
+    list: function (req, res) {
+        if (!req.session.user) {
+            res.json({error: 'Forbidden' }, 403);
+        }
+
+        res.view({"userId": req.session.user});
+    },
+
   /**
    * Overrides for the settings in `config/controllers.js`
    * (specific to CollectionController)

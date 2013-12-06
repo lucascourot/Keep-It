@@ -69,3 +69,11 @@
   window.io
 
 );
+
+
+function parseResult(res) {
+    res = res.responseText;
+//    return JSON.parse(res);
+    var parsedJSON = eval('('+res+')');
+    return parsedJSON;
+}
