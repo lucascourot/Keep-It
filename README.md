@@ -12,6 +12,10 @@ Admin tool for favorite products management
  * Run "node ." to start the application
  * Open http://localhost:1337/
 
+### Known issues
+
+You might need to install packages like mongodb-server, redis-server, git and python on your system.
+
 ## Rest API
 
  * Register to the application thanks to the Register form on the homepage
