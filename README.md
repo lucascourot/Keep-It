@@ -37,6 +37,7 @@ To do that, just visit this URL:
 http://localhost:1337/api/v1/items/create?name=Laptop&description=description%20of%20the%20item&price=10&collectionId=52a153de69d0620000000003
 
 The server responds with the created item:
+
     {
         name: "Laptop",
         description: "description of the item",
