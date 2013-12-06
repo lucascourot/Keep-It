@@ -264,3 +264,7 @@ body {
     width: 350px;
     text-align: right;
 }
+
+.rest-title {
+    border-bottom: 2px solid darkblue;
+}

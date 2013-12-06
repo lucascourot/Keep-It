@@ -1,11 +1,66 @@
 <div class="container clearfix">
     <div class="main">
-        <h1 id="main-title">REST API</h1>
-        <h2>Items</h2>
-        <div class="steps">
+        <h1 id="main-title">REST API documentation</h1>
+
+        <h2 class="rest-title">Collections</h2>
+        <div>
             <ul class="getting-started">
                 <li>
-                    <div class="sprite one"></div>
+                    
+                    <div>
+                        <h3>GET /api/v1/collections</h3>
+                        <p>
+                            <pre><code>
+[
+    {
+        name: "mycollection1",
+        userId: "52a1537569d0620000000002",
+        createdAt: "2013-12-06T04:34:38.280Z",
+        updatedAt: "2013-12-06T04:34:38.280Z",
+        id: "52a153de69d0620000000003"
+    }
+]
+                            </code></pre>
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    
+                    <div>
+                        <h3>POST /api/v1/collections</h3>
+                        <p>
+                            <pre><code>
+{
+    name: "mycollection1",
+    userId: "52a1537569d0620000000002",
+    createdAt: "2013-12-06T04:34:38.280Z",
+    updatedAt: "2013-12-06T04:34:38.280Z",
+    id: "52a153de69d0620000000003"
+}
+                                </code></pre>
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    
+                    <div>
+                        <h3>PUT /api/v1/collections</h3>
+                    </div>
+                </li>
+                <li>
+                    
+                    <div>
+                        <h3>DELETE /api/v1/collections</h3>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <h2 class="rest-title">Items</h2>
+        <div>
+            <ul>
+                <li>
+                    
                     <div>
                         <h3>GET /api/v1/items</h3>
                         <p>
@@ -25,21 +80,89 @@
                     </div>
                 </li>
                 <li>
-                    <div class="sprite two"></div>
+                    
                     <div>
                         <h3>POST /api/v1/items</h3>
+                        <p>
+                            <pre><code>
+{
+    name: "Foo",
+    description: "Bar",
+    price: 10,
+    createdAt: "2013-12-05T22:54:05.222Z",
+    updatedAt: "2013-12-05T22:54:05.222Z",
+    id: "52a1040d5fae0f0000000002"
+}
+                                </code></pre>
+                        </p>
                     </div>
                 </li>
                 <li>
-                    <div class="sprite three"></div>
+                    
                     <div>
                         <h3>PUT /api/v1/items</h3>
                     </div>
                 </li>
                 <li>
-                    <div class="sprite four"></div>
+                    
                     <div>
                         <h3>DELETE /api/v1/items</h3>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <h2 class="rest-title">Users</h2>
+        <div>
+            <ul>
+                <li>
+
+                    <div>
+                        <h3>GET /api/v1/users</h3>
+                        <p>
+                            <pre><code>
+[
+    {
+        name: "Jean",
+        email: "jean@dupont.com",
+        password: "$2a$10$0zmQK0PlWPRSTLq7TKaGiuvtHSfi0HakcHFpWKx4wYTUFA.9ATrfG",
+        createdAt: "2013-12-06T04:32:53.748Z",
+        updatedAt: "2013-12-06T04:32:53.748Z",
+        id: "52a1537569d0620000000002"
+    }
+]
+                            </code></pre>
+                        </p>
+                    </div>
+                </li>
+                <li>
+
+                    <div>
+                        <h3>POST /api/v1/users</h3>
+                        <p>
+                            <pre><code>
+{
+    name: "Jean",
+    email: "jean@dupont.com",
+    password: "$2a$10$0zmQK0PlWPRSTLq7TKaGiuvtHSfi0HakcHFpWKx4wYTUFA.9ATrfG",
+    createdAt: "2013-12-06T04:32:53.748Z",
+    updatedAt: "2013-12-06T04:32:53.748Z",
+    id: "52a1537569d0620000000002"
+}
+                                </code></pre>
+                        </p>
+                    </div>
+                </li>
+                <li>
+
+                    <div>
+                        <h3>PUT /api/v1/users</h3>
+                    </div>
+                </li>
+                <li>
+
+                    <div>
+                        <h3>DELETE /api/v1/users</h3>
                     </div>
                 </li>
             </ul>
