@@ -1,10 +1,10 @@
 # Keep It
 
-Admin tool for favorite products management
+An admin tool to manage your favorite products
 
 ## Installation
 
- * Git clone or place the code source in the directory you want
+ * Git clone or place the source code in the directory you want
  * Install npm
  * Run npm install
  * Run mongod to start mongodb
@@ -52,7 +52,7 @@ The server responds with the created item:
         id: "52a1549769d0620000000004"
     }
 
-If you want to add other items you have to provide * different names *.
+If you want to add other items you have to provide *different names*.
 
 You can now come back  to the products page to see your collections and items :)
 http://localhost:1337/products
@@ -62,7 +62,7 @@ Now, it's up to you to create a mobile application and bind it to the webservice
 # Configure the application
 
 The application is based on the Sails (http://sailsjs.org/) Node.js web framework.
-It used mongodb to store the data the Redis to store the sessions.
+It uses mongodb to store the data the Redis to store the sessions.
 
 The configuration of the application is located in config/.
 For example, if you want to manage i18n, you will find the translation files in config/locales and config/i18n.js.
